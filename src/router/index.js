@@ -88,11 +88,11 @@ const router = new Router({
       name:'filterTime',
       component:filterTime
     },
-    // {
-    //   path:'/tea',
-    //   name:'tea',
-    //   component:tea
-    // }
+    {
+      path:'/tea',
+      name:'tea',
+      component:tea
+    }
   ]
 })
 
