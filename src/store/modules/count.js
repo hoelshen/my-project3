@@ -1,16 +1,20 @@
+const count = {
+    state: {
+        count:0
+    },
+    mutations: {
+        increment:state => state.count++,
+        decrement:state => state.count--
+    },    
+    getters:{
 
-const state = {
-    count:0
-}
-const mutations =  {
-    increment:state => state.count++,
-    decrement:state => state.count--
-    
+    },
+  
 }
 
-export default{ 
-    state,
-    mutations
+
+export default{
+    count
 }
 
 

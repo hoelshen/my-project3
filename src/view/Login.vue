@@ -27,7 +27,7 @@ export default {
               userSrv
                 .login({ username, password })
                 .then(rep => {
-                  console.log('success')
+                  rep  && $router.push('home')
                 })
             },
             upload (e) {
@@ -43,7 +43,37 @@ export default {
                   console.log(progressEvent)
                 }
               })
-            }
+            },
+
+
+
+          // // 简单的登录控制
+          // router.beforeEach((to, from, next) => {
+          //   // 用户未登录（此处简单处理判断登录后是否注入了cookie）且并不前往登录页
+          //   if (to.path !== '/login' && !document.cookie.match('token=([^;]*)')) {
+          //     next('/login') // 强制前往登录页
+          //   } else {
+          //     next();
+          //   } 
+          // })
+
+          // // 使用请求校验
+          // router.beforeEach((to, from, next) => {
+          //   if (to.path !== '/login') {
+          //     // 此处模拟一个登录校验接口，由后端进行验证
+          //     axios({
+          //       url: '/user/isLogin',
+          //       method: 'get'
+          //     }).then(rep => {
+          //       rep ? next() : next('/login');
+          //     })
+          //   }
+          // });
+
+
+
+
+
     }
 }
 </script>

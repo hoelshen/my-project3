@@ -2,6 +2,10 @@ import myBodyer  from '../components/myBodyer.vue';
 import myHeader  from '../components/myHeader.vue';
 import myFooter from '../components/myFooter.vue';
 import myCarousel from '../components/myCarousel.vue';
+import myA from '../view/myA.vue';
+import myB from '../view/myB.vue';
+import myC from '../view/myC.vue';
+
 
 
 export  default{
@@ -10,6 +14,10 @@ export  default{
         Vue.component(myFooter.name,myFooter)
         Vue.component(myBodyer.name,myBodyer)
         Vue.component(myCarousel.name,myCarousel)
+        Vue.component(myA.name,myA)
+        Vue.component(myB.name,myB)
+        Vue.component(myC.name,myC)
+        
         Vue.component('text-effect', {
             template: '<transition-group :css="false" class="fx" tag="div" mode="in-out" \
               @before-enter="beforeEnter" \

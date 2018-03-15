@@ -50,6 +50,14 @@ export default {
     tiaozhuan: function() {
       this.$router.push("./test1");
     }
+  },
+  watch:{
+    '$route.params'(val){
+      const  {id} =val;
+      id.fetchById(id).then(rep => {
+        console.log($route.params)
+      })
+    }
   }
   // props:['myMessage']
 };

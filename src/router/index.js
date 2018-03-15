@@ -14,8 +14,10 @@ import directive from '@/view/directive'
 import test4 from '@/view/test4'
 import filterTime from '@/view/filterTime'
 import tea from '@/view/tea'
-
-
+import Dashboard from '@/view/Dashboard'
+import Navi from '@/view/Navigator'
+import Sidebar from '@/view/Sidebar'
+// const Login = () => import('@/view/Login')
 
 Vue.use(Router)
 
@@ -23,11 +25,18 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
-
+    // {
+    //   path: '/',
+    //   component: {
+    //       default:Dashboard,
+    //       navigator:Navi,
+    //       sidebar:Sidebar
+    //   }
+    // },
     {
       path: '/',
       name: 'HelloWorld',
-      component: HelloWorld,
+      component: HelloWorld
     },
     {
       path:'*',
@@ -51,7 +60,19 @@ const router = new Router({
     {
       path:'/user/:id',
       name:'user',
-      component: user
+      component: user,
+      children:[
+        {
+          path:'list',
+          name:'list',
+          component:list
+        },
+        {
+          path:'edit',
+          name:'edit',
+          component:edit
+        }
+      ]
     },
     {
       path:'/manage',
@@ -92,7 +113,22 @@ const router = new Router({
       path:'/tea',
       name:'tea',
       component:tea
-    }
+    },
+    // {
+    //   path:'/a',
+    //   name:'a',
+    //   component:a
+    // },
+    // {
+    //   path:'/b',
+    //   name:'b',
+    //   component:b
+    // },
+    // {
+    //   path:'/c',
+    //   name:'c',
+    //   component:c
+    // }
   ]
 })
 

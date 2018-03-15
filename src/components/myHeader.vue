@@ -2,23 +2,23 @@
       <div id="myHeader">
         <!-- <p>{{msg}}</p> -->
         <p>{{myMessage123}}</p>
-        <p>{{ $store.state.count.count}}</p>
+        <p>{{$store.state.count.count}}</p>
         <button @click='increment'>+</button>
         <button @click='decrement'>-</button>
         <button @click='press'>press</button>
         <button @click="pressMsg('按到了')">press</button>
-    
+<!--     
         
         <ul>
           <li v-for="(item, itemIndex) in items">{{ itemIndex }}-{{ item.name }}</li> 
         </ul>
         <ul>
           <li v-for="val in 10">{{ val }}</li>           
-        </ul>
-        <template v-if="noRoot">
-        <div>兄弟节点1</div>
-        <div>兄弟节点2</div>
-      </template>       
+        </ul> -->
+        <!-- <template v-if="noRoot">
+            <div>兄弟节点1</div>
+            <div>兄弟节点2</div>
+        </template>        -->
       </div>
       
 </template>
@@ -37,8 +37,7 @@ export default {
           {id:3, name:'v-show'},
           {id:4, name:'v-for'},
           
-        ],
-        noRoot:true,
+        ]
       }
     },
     props:['myMessage123'],
@@ -57,7 +56,7 @@ export default {
       }
     },
     created() {
-      console.log(this.$store.state)
+      console.log(this.$store.state.count.count)
     }
 }
 </script>

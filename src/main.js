@@ -33,6 +33,8 @@ Vue.use(require('vue-moment'))
 //全局方法
 Vue.prototype.$api = $api;
 Vue.prototype.$http  = axios;
+Vue.prototype.$bus = new Vue(); 
+
 
 
 /* eslint-disable no-new */
