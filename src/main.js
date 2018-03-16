@@ -11,12 +11,15 @@ import axios  from  'axios';
 import components from './components'
 import VueFilter from 'vue-filter';
 import filters from '../src/filters'
-
+import ElementUI from 'element-ui'
+import VueResource from 'vue-resource'
 
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
 
 
+Vue.use(VueResource);
+Vue.use(ElementUI)
 Vue.use(components)
 
 //vuex
@@ -32,7 +35,7 @@ Vue.use(require('vue-moment'))
 
 //全局方法
 Vue.prototype.$api = $api;
-Vue.prototype.$http  = axios;
+// Vue.prototype.$http  = axios;
 Vue.prototype.$bus = new Vue(); 
 
 

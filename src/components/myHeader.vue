@@ -25,6 +25,8 @@
 
 <script>
 import store from '../store/index'
+
+
 export default {
     name:'myHeader',
     data(){
@@ -56,7 +58,8 @@ export default {
       }
     },
     created() {
-      console.log(this.$store.state.count.count)
+      console.log(this.$store)
+
     }
 }
 </script>

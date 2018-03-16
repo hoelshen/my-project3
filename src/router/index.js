@@ -17,6 +17,9 @@ import tea from '@/view/tea'
 import Dashboard from '@/view/Dashboard'
 import Navi from '@/view/Navigator'
 import Sidebar from '@/view/Sidebar'
+import fuzzySearch from '@/view/fuzzySearch'
+import ele from '@/view/ele'
+
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -113,6 +116,16 @@ const router = new Router({
       path:'/tea',
       name:'tea',
       component:tea
+    },
+    {
+      path:'/fuzzySearch',
+      name:'fuzzySearch',
+      component:fuzzySearch
+    },
+    {
+      path:'/ele',
+      name:'ele',
+      component:ele
     },
     // {
     //   path:'/a',

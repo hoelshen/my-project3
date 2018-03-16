@@ -11,11 +11,13 @@ Vue.use(Vuex)
 
 const store =  new Vuex.Store({
     modules:{
-        count:count
-    }
+        count
+    },
+ 
 })
 
-store.state.count // -> moduleA 的状态
+
+export default store
 
 
 
