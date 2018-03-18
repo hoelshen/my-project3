@@ -2,7 +2,7 @@
   <div>
      共有 {{ count }} 个事项
     <div v-for="item in todoList"
-        v-bind:item>
+        v-bind:time>
       {{ item.time }} {{ item.content }}
     </div>
     <input v-model="content">
