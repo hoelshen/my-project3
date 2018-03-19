@@ -1,4 +1,4 @@
-const count = {
+const todoList = {
     state: {
         // 设定整个仓库的状态，也就是数据结构
         todoList:[{time:new Date(),content:'初始数据'}]
@@ -11,7 +11,7 @@ const count = {
 
      // 定义行为，可被组件调用
     // action中不会修改state值
-    action:{
+    actions:{
         addTodo({commit},data){
             commit('addTodo',data)
         }
@@ -22,7 +22,7 @@ const count = {
 
         afterTodayTodo: state => state.todoList.filter(todo => { /* ... */ })
     },
-
+}
     // actions: {
     //     fetch ({ commit }, data) {
     //       axios
@@ -49,10 +49,7 @@ const count = {
 
 
 
-}
-
-
-export default  todolist
+export default  todoList
 
 
 

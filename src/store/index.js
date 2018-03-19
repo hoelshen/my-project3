@@ -4,7 +4,7 @@ import Vuex from 'vuex';
 
 //模块
 import count  from './modules/count'
-import todolist  from './modules/todolist'
+import todoList  from './modules/todolist'
 import * as types from './types'
 
 Vue.use(Vuex)
@@ -13,7 +13,7 @@ Vue.use(Vuex)
 const store =  new Vuex.Store({
     modules:{
         count,
-        todolist
+        todoList
     },
     
     // state: { ... },

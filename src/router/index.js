@@ -19,6 +19,7 @@ import Navi from '@/view/Navigator'
 import Sidebar from '@/view/Sidebar'
 import fuzzySearch from '@/view/fuzzySearch'
 import ele from '@/view/ele'
+import todolist from '@/view/todolist'
 
 // const Login = () => import('@/view/Login')
 
@@ -127,6 +128,11 @@ const router = new Router({
       name:'ele',
       component:ele
     },
+    {
+      path:'/todolist',
+      name:'todolist',
+      component:todolist
+    }
     // {
     //   path:'/a',
     //   name:'a',

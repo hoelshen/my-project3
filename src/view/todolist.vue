@@ -2,8 +2,8 @@
   <div>
      共有 {{ count }} 个事项
     <div v-for="item in todoList"
-        v-bind:time>
-      {{ item.time }} {{ item.content }}
+        v-bind:key="item.time">
+      {{ item.time }} {{item.content }}
     </div>
     <input v-model="content">
     <button @click='add'>新增</button>
@@ -34,6 +34,29 @@ export default {
     count () {
       return this.$store.getters.todoCount
     }
+  },
+  methods: {
+    // 通过dispatch方法调用actions中定义好的方法
+    add () {
+      this.$store.dispatch('addTodo', { content: this.content })
+    },
+
+    // 也可以通过commit方法直接调用mutations中的方法，略过action
+    addCommit () {
+      this.$store.commit('addTodo', { content: this.content })
+    }
+  },
+  created(){
+    
+    console.log(this.$store.state.todoList.todoList.item
+)    
+    
+
+    // console.log(this.$store.state.item.time)
+    
+  }
+}
+
 
         //   computed: mapState({
         //   items: state => state.todoList
@@ -62,7 +85,7 @@ export default {
 
         // // 组件本身需要使用计算属性，mapState可以使用对象展开运算符来简化写法
         // computed: {
-        //   local () { /* ... */ },
+        //   local () { /* ... */ ,
         //   // 使用对象展开运算符将此对象合并到外部对象中
         //   ...mapState({
         //     items: state => state.todoList
@@ -84,18 +107,5 @@ export default {
             ])
           }
           */
-  },
 
-  methods: {
-    // 通过dispatch方法调用actions中定义好的方法
-    add () {
-      this.$store.dispatch('addTodo', { content: this.content })
-    },
-
-    // 也可以通过commit方法直接调用mutations中的方法，略过action
-    addCommit () {
-      this.$store.commit('addTodo', { content: this.content })
-    }
-  }
-}
 </script>
