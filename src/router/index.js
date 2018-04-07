@@ -20,7 +20,7 @@ import Sidebar from '@/view/Sidebar'
 import fuzzySearch from '@/view/fuzzySearch'
 import ele from '@/view/ele'
 import todolist from '@/view/todolist'
-
+import drag from  '@/view/drag'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -132,6 +132,11 @@ const router = new Router({
       path:'/todolist',
       name:'todolist',
       component:todolist
+    },
+    {
+      path:'/drag',
+      name:'drag',
+      component:drag
     }
     // {
     //   path:'/a',

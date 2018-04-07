@@ -13,6 +13,7 @@ import VueFilter from 'vue-filter';
 import filters from '../src/filters'
 import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
+import VueDND from 'awe-dnd'
 
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
@@ -22,9 +23,17 @@ Vue.use(VueResource);
 Vue.use(ElementUI)
 Vue.use(components)
 
+//拖拽排序
+Vue.use(VueDND)
+
 //vuex
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
+
+
+
+
 
 //全局过滤
 Vue.use(filters);
