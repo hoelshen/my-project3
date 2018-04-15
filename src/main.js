@@ -15,6 +15,13 @@ import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
 import VueDND from 'awe-dnd'
 
+import VvUI from 'vvui' // 引入组件库
+import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
+
+
+Vue.use(VvUI)
+
+
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
 

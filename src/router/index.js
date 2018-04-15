@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-
+// import Main from '@/view/Main'
 import HelloWorld from '@/view/HelloWorld'
 import test1 from "@/view/test1"
 import computed from '@/view/computed'
@@ -36,6 +36,11 @@ const router = new Router({
     //       navigator:Navi,
     //       sidebar:Sidebar
     //   }
+    // },
+    // {
+    //   path: '/',
+    //   name: 'Main',
+    //   component: Main
     // },
     {
       path: '/',

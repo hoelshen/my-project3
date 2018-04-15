@@ -2,8 +2,7 @@
     <div id="user">
         <p>id:{{id}}</p>
         <p>123</p>
-        <div>
-                人员管理
+        <div>   
                 <ul>
                     <li><router-link to="/manage/list">人员列表</router-link></li>
                     <li><router-link to="/manage/edit">编辑</router-link></li>
