@@ -3,20 +3,11 @@
         <p>id:{{id}}</p>
         <p>123</p>
         <div>
-                人员管理
-                <ul>
-                    <li><router-link to="/manage/list">人员列表</router-link></li>
-                    <li><router-link to="/manage/edit">编辑</router-link></li>
-                </ul>
-                <ul>
-                    <li>
-                        <a v-link-active href="/src/view/manage.vue"></a>
-                    </li>
-                    <li>
-
-                    </li>
-                </ul>
-                <router-view></router-view>
+            人员管理
+            <ul>
+                <li><router-link to="/manage/list">人员列表</router-link></li>
+                <li><router-link to="/manage/edit">编辑</router-link></li>
+            </ul><br>
         </div>
     </div>
 </template>

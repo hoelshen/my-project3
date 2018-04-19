@@ -1,86 +1,110 @@
 <template>
-    <div id="app">
-    <el-autocomplete popper-class="my-autocomplete" v-model="state3" :fetch-suggestions="querySearch" placeholder="请输入内容" >
-    
-    <!-- slot -->
-    <template slot-scope="tzm">
-        <div class="name">{{ tzm.item.value }}</div>
-        <!-- 父组件传过来的 -->
-    </template>
-
-    </el-autocomplete>
-
-        <div>
-            <ul>
-            <li v-for="article in articles"
-                v-bind:key="article"
-            >
-              {{article.title}}
-        </li>
-        </ul>
-    </div>
-    </div>
-
-  
-
+        <div id="app">
+            <el-autocomplete  popper-class="my-autocomplete" v-model="state3" :fetch-suggestions="querySearch" placeholder="请输入内容" >
+            </el-autocomplete>
+        </div>
 </template>
 
 
 <script>
+import axios from 'axios'
     export default{
     data() {
         return {
-            restaurants: [],
             state3: '',
-            articles:[]
+            articles:[],
         };
     },
     methods: {
       querySearch(queryString, cb) {
-        var restaurants = this.restaurants;
-        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants;
+        let articles = this.articles; 
+        let list = [];
         // 调用 callback 返回建议列表的数据
-        cb(results);
+   
+
+            for(let val of articles ){
+                // val.value = val
+                console.log(articles)
+            }
+            
+        //     for (let item of articles) {
+        //         if (item.title.indexOf(queryString) > -1 || item.title.indexOf(queryString) > -1) {
+        //             list.push(item)
+        //         }
+        //     }
+
+        //    var results = queryString ? articles.filter(this.createFilter(queryString)) : articles;
+        //    console.log(results);
+        //    cb(list);
+       
       },
       createFilter(queryString) {
-        return (restaurant) => {
-          return (restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+        return (articles) => {
+          return (articles.title.toLowerCase().indexOf(queryString.toLowerCase()) > -1);
         };
       },
-      loadAll() {
-        return [
-          { "value": "三全鲜食（北新泾店）",  },
-          { "value": "Hot honey 首尔炸鸡（仙霞路）", },
-          { "value": "新旺角茶餐厅", },
-          { "value": "泷千家(天山西路店)", },
-          { "value": "胖仙女纸杯蛋糕（上海凌空店）", },
-          { "value": "贡茶", },
-          { "value": "豪大大香鸡排超级奶爸",  },
-          { "value": "茶芝兰（奶茶，手抓饼）",  },
-          { "value": "十二泷町", },
-          { "value": "星移浓缩咖啡", },
-          { "value": "阿姨奶茶/豪大大",  },
-          { "value": "新麦甜四季甜品炸鸡2332", }
-        ];
+       handleSelect(item) {
+         console.log('ok');
       }
     },
-    mounted() {
-      this.restaurants = this.loadAll();
-      this.$http.jsonp('https://api.douban.com/v2/movie/top250?count=10', {}, {
-        headers: {
+    mounted(){
 
-        },
-        emulateJSON: true
-        }).then(function(response) {
-        // 这里是处理正确的回调
+    },
+    created(){
 
-            this.articles = response.data.subjects
-            // this.articles = response.data["subjects"] 也可以
+    //   const data ="../static/index.json" ;
+    //   this.$http.get(data
+    //   ).then(function(response){
+    //      let arr = [];
+    //      let arr2 = response.data.subjects;
+    //     // for(var key of arr2){
+    //     //     arr.push(key.title)
 
-        }, function(response) {
-            // 这里是处理错误的回调
-            console.log(response)
-        });
+    //     // }
+    //     this.articles = arr2;
+    //     console.log(this.articles);
+    //   }),function(err){
+    //       alert('请求失败:',err);
+    //   }
+
+      const url = "http://api.douban.com/v2/movie/top250?count=10";
+        
+         var self = this;
+        $.ajax({
+
+                url:url,
+
+                dataType:'jsonp',
+
+
+                success:function(data){
+                      let arr = [];
+                     let arr2 = data.subjects;
+                    for(var key of arr2){
+                        arr.push(key.title)
+                    }
+
+                    self.articles = arr;
+                }
+
+        })
+
+
+
+        
+
+
+
+
+        // axios.post(url)
+        // .then(function (response) {
+        //     console.log(response);
+        // })
+        // .catch(function (error) {
+        //     console.log(error);
+        // });
+
+
     }
   }
 

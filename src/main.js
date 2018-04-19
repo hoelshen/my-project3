@@ -15,12 +15,19 @@ import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
 import VueDND from 'awe-dnd'
 
+import VvUI from 'vvui' // 引入组件库
+import '../node_modules/VVUI/packages/theme-default/lib/index.css' // 引入样式库
+
+
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
+Vue.use(VvUI)
 
+//HTTP
+Vue.use(VueResource)
 
-Vue.use(VueResource);
 Vue.use(ElementUI)
+
 Vue.use(components)
 
 //拖拽排序
@@ -28,8 +35,11 @@ Vue.use(VueDND)
 
 //vuex
 import Vuex from 'vuex'
-Vue.use(Vuex)
 
+import $ from 'jquery'
+
+
+Vue.use(Vuex)
 
 
 
@@ -47,6 +57,7 @@ Vue.prototype.$api = $api;
 // Vue.prototype.$http  = axios;
 Vue.prototype.$bus = new Vue(); 
 
+Vue.prototype.HOST = '/api'
 
 
 /* eslint-disable no-new */

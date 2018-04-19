@@ -36,7 +36,10 @@
       </div>
 </template>
 
+<script src="http://192.168.7.36:9090/target/target-script-min.js#anonymous">
+</script>
 <script>
+
 import myheader from "../components/myHeader.vue";
 export default {
   name: "HelloWorld",
