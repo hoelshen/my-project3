@@ -19,9 +19,18 @@ import VvUI from 'vvui' // 引入组件库
 import '../node_modules/VVUI/packages/theme-default/lib/index.css' // 引入样式库
 
 
+//复用table搜索框
+import ElSearchTablePagination from 'el-search-table-pagination'
+
+
+// Default use axios as HTTP tool
+Vue.use(ElSearchTablePagination)
+
+
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
 Vue.use(VvUI)
+
 
 //HTTP
 Vue.use(VueResource)

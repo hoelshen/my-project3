@@ -22,6 +22,8 @@ import ele from '@/view/ele'
 import todolist from '@/view/todolist'
 import drag from  '@/view/drag'
 import  main  from '@/view/main'
+import  tablePagination  from '@/view/table-pagination'
+import github from '@/view/github'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -138,6 +140,16 @@ const router = new Router({
       path:'/drag',
       name:'drag',
       component:drag
+    },
+    {
+      path:'/tablePagination',
+      name:'tablePagination',
+      component:tablePagination
+    },
+    {
+      path:'/github',
+      name:'github',
+      component:github
     }
     // {
     //   path:'/a',

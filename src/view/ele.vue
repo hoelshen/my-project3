@@ -6,6 +6,8 @@
 </template>
 
 
+
+
 <script>
 import axios from 'axios'
     export default{
@@ -94,9 +96,14 @@ import axios from 'axios'
         
 
 
+        // const url = "https://api.douban.com/v2/movie/top250?count=10";
 
+        // var config = {
+        //     headers: {'Access-Control-Allow-Origin': '*'},
+            
+        // };
 
-        // axios.post(url)
+        // axios.get(url, config)
         // .then(function (response) {
         //     console.log(response);
         // })

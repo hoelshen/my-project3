@@ -8,10 +8,11 @@
 		</div>
 </template >
 
+
 <script>
 export default {
 	data(){
-		return{
+		return {
 			img_url:"../../static/img/橘猫.jpg",
 			items:[],
 			init:1,
