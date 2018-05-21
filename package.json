@@ -30,7 +30,8 @@
     "vuex": "^3.0.1",
     "vv-ui": "0.0.4",
     "vvui": "^1.0.4",
-    "webpack-bundle-analyzer": "^2.11.1"
+    "webpack-bundle-analyzer": "^2.11.1",
+    "jquery" : "^2.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

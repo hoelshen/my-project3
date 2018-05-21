@@ -15,8 +15,11 @@ import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
 import VueDND from 'awe-dnd'
 
+import $ from 'jquery'
+
 import VvUI from 'vvui' // 引入组件库
 import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
+// import $ from  './assets/js/jquery.min.js' //js
 
 
 Vue.use(VvUI)

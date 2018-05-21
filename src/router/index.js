@@ -21,6 +21,8 @@ import fuzzySearch from '@/view/fuzzySearch'
 import ele from '@/view/ele'
 import todolist from '@/view/todolist'
 import drag from  '@/view/drag'
+import time from '@/view/time'
+import avgle from '@/view/avgle'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -142,6 +144,17 @@ const router = new Router({
       path:'/drag',
       name:'drag',
       component:drag
+    },
+    {
+      path:'/time',
+      name:'time',
+      component:time
+    },
+    {
+      path:'/avgle',
+      name:'avgle',
+      component:avgle
+      
     }
     // {
     //   path:'/a',
