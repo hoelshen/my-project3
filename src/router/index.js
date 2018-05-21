@@ -41,8 +41,8 @@ const router = new Router({
     // },
     // {
     //   path: '/',
-    //   name: 'Main',
-    //   component: Main
+    //   name: 'main',
+    //   component: main
     // },
     {
       path: '/',
@@ -69,27 +69,22 @@ const router = new Router({
       component: test3
     },
     {
-      path:'/user/:id',
+      path:'/user',
       name:'user',
       component: user,
       children:[
         {
-          path:'list',
-          name:'list',
-          component:list
+          path:':id',
+          name:'ele',
+          component:ele,
         },
-        {
-          path:'edit',
-          name:'edit',
-          component:edit
-        }
       ]
     },
     {
       path:'/manage',
       name:'manage',
       component:manage,
-      //子路由由children表示
+      // 子路由由children表示
       children:[
         {
           path:'list',

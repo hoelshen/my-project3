@@ -8,6 +8,9 @@ const baseWebpackConfig = require('./webpack.base.conf')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const PrerenderSpaPlugin = require('prerender-spa-plugin')
+
+
 const portfinder = require('portfinder')
 
 const HOST = process.env.HOST

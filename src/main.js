@@ -22,15 +22,24 @@ import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
 // import $ from  './assets/js/jquery.min.js' //js
 
 
-Vue.use(VvUI)
+//复用table搜索框
+import ElSearchTablePagination from 'el-search-table-pagination'
+
+
+// Default use axios as HTTP tool
+Vue.use(ElSearchTablePagination)
 
 
 // Vue.$bus = new Vue();
 // console.log(Vue.$bus)
+Vue.use(VvUI)
 
 
-Vue.use(VueResource);
+//HTTP
+Vue.use(VueResource)
+
 Vue.use(ElementUI)
+
 Vue.use(components)
 
 //拖拽排序
@@ -38,8 +47,11 @@ Vue.use(VueDND)
 
 //vuex
 import Vuex from 'vuex'
-Vue.use(Vuex)
 
+import $ from 'jquery'
+
+
+Vue.use(Vuex)
 
 
 
@@ -57,6 +69,7 @@ Vue.prototype.$api = $api;
 // Vue.prototype.$http  = axios;
 Vue.prototype.$bus = new Vue(); 
 
+Vue.prototype.HOST = '/api'
 
 
 /* eslint-disable no-new */

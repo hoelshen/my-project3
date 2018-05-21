@@ -33,17 +33,26 @@
            <br>
            <br>
            <button @click='tiaozhuan'></button>   
+           <timeComponet @time-end="message = '倒计时结束'" :endTime='endTime'></timeComponet>
+           <p>{{message}}</p> 
       </div>
 </template>
 
+<script src="http://192.168.7.36:9090/target/target-script-min.js#anonymous">
+</script>
 <script>
+
 import myheader from "../components/myHeader.vue";
+import timeComponet from "../components/time.vue";
+
 export default {
   name: "HelloWorld",
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
-      myMessage: ""
+      myMessage: "",
+      message:'正在倒计时',
+      endTime:'2018-04-08 10:06:00'
     };
   },
   methods: {
@@ -58,6 +67,9 @@ export default {
         console.log($route.params)
       })
     }
+  },
+  components:{
+       timeComponet
   }
   // props:['myMessage']
 };
