@@ -23,11 +23,11 @@ import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
 
 
 //复用table搜索框
-import ElSearchTablePagination from 'el-search-table-pagination'
+// import ElSearchTablePagination from 'el-search-table-pagination'
 
 
 // Default use axios as HTTP tool
-Vue.use(ElSearchTablePagination)
+// Vue.use(ElSearchTablePagination)
 
 
 // Vue.$bus = new Vue();
@@ -48,12 +48,15 @@ Vue.use(VueDND)
 //vuex
 import Vuex from 'vuex'
 
-import $ from 'jquery'
 
 
 Vue.use(Vuex)
 
-
+Vue.mixin({
+  created() {
+    console.log('global mixin')
+  },
+})
 
 
 

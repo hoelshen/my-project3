@@ -9,10 +9,11 @@
 
 <script>
 
-import Mixin from './mixin.js'
+// import Mixin from './mixin.js'
 
 export default {
-  mixins: [myMixin]
+
+
 }
 </script>
 

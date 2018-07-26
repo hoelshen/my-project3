@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <span class="span-a">
+            {{obj.a}}
+        </span>
+        <span class="span-b">
+            {{obj.b}}
+        </span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                obj:{
+                    a:'a'
+                }
+            }
+        })
+        app.obj.a = 'a2'
+        app.obj.b ='b'
+    
+    </script>
+</body>
+</html>

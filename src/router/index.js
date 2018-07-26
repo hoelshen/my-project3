@@ -23,6 +23,9 @@ import todolist from '@/view/todolist'
 import drag from  '@/view/drag'
 import time from '@/view/time'
 import avgle from '@/view/avgle'
+import imge from '@/view/imge'
+import mixin from '@/view/mixin'
+import Carousel from '@/view/Carousel'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -87,14 +90,15 @@ const router = new Router({
       // 子路由由children表示
       children:[
         {
-          path:'list',
+          path:'/list',
           name:'list',
           component:list
         },
         {
-          path:'edit',
+          path:'/edit',
           name:'edit',
-          component:edit
+          component:edit,
+          meta:{auth:true}
         }
       ]
     },
@@ -150,7 +154,40 @@ const router = new Router({
       name:'avgle',
       component:avgle
       
-    }
+    },
+    {
+      path:'/imge',
+      name:'imge',
+      component:imge
+    },
+    {
+      path:'/mixin',
+      name:'mixin',
+      component:mixin
+    },
+    {
+      path:'/Navi',
+      name:'Navi',
+      component:Navi
+    },
+    {
+      path:'/Dashboard',
+      name:'Dashboard',
+      component:Dashboard
+    },
+    {
+      path:'/Carousel',
+      name:'Carousel',
+      component:Carousel
+    },
+    {
+      path:'/Sidebar',
+      name:'Sidebar',
+      component:Sidebar
+    },
+    
+
+    
     // {
     //   path:'/a',
     //   name:'a',
@@ -168,5 +205,46 @@ const router = new Router({
     // }
   ]
 })
+
+
+
+
+router.beforeEach((to, from, next) => {
+  // getToken(()=>{
+  //   let token = window.localStorage
+  //   return token
+  // })
+  // console.log(getToken())
+
+  /*
+  如果ture,在进入edit,如果fasle，则进入ele
+  */
+ let token = window.localStorage
+ 
+  // let token = null;
+  // console.log(token)
+  //根据字段判断是否路由过滤
+  // console.log(record => record.meta.auth)
+  // console.log(to.matched.some(record => record.meta.auth))
+  // console.log(to.matched)
+  if (to.matched.some(record => record.meta.auth)) {
+    if (token !== null) {
+      console.log('ok')
+      next()
+    } else {
+      //防止无限循环
+      if (to.name === '/edit') {
+        next();
+        return
+      }
+      next({
+        path: '/ele',
+      });
+    }
+  } else {
+    next()//若点击的是不需要验证的页面,则进行正常的路由跳转
+  }
+});
+
 
 export default router; //将路由器导出

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="box">
+        <input type="button" @click="a='aaa'" value="aaa组件">
+        <input type="button" @click="a='bbb'" value="bbb组件">
+        <component :is="a"></component> <!-- 动态组件-->
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#box',
+            data:{
+                a:'bbb'
+            },
+            components:{
+                'aaa':{
+                    template:'<h2>我是aaa组件</h2>'
+                },
+                'bbb':{
+                    template:'<h2>我是bbb组件</h2>'
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

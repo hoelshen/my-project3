@@ -1,0 +1,59 @@
+@background-less:#ffffff;
+@background-ul:#000;
+@borderStyle:border-style;
+@borderSolid:solid;
+@Rules:{
+    width:200px;
+    height:200px;
+    border:solid 1px red;
+};
+
+@fonrd:"I am fnord'";
+@var:"fnord";
+
+/* Less */
+#main{
+    // something..
+    &.show{
+      display:block;
+    }
+}
+.show{
+    display:none;
+}
+
+
+/* Less */
+#card{
+    
+    // and 运算符 ，相当于 与运算 &&，必须条件全部符合才会执行
+    .border(@width,@color,@style) when (@width>100px) and(@color=#999){
+        border:@style @color @width;
+    }
+
+    // not 运算符，相当于 非运算 !，条件为 不符合才会执行
+    .background(@color) when not (@color>=#222){
+        background:@color;
+    }
+
+    // , 逗号分隔符：相当于 或运算 ||，只要有一个符合条件就会执行
+    .font(@size:20px) when (@size>50px) , (@size<100px){
+        font-size: @size;
+    }
+}
+
+/* Less */
+.average(@x, @y) {
+    @average: ((@x + @y) / 2);
+  }
+
+
+
+
+  @baseFontSize:75;
+
+  .px2rem(@name,@px){
+      @{name}:@px / @baseFontSize * 1rem;
+  }
+  
+

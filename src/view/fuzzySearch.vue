@@ -10,9 +10,6 @@
             >{{name}}</li>    
         </ul>
         <p>{{search}}</p>
-
-
-        
     </div>
 </template>
 
