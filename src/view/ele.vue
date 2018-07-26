@@ -2,6 +2,8 @@
         <div id="app">
             <el-autocomplete  popper-class="my-autocomplete" v-model="state3" :fetch-suggestions="querySearch" placeholder="请输入内容" >
             </el-autocomplete>
+            <gButton> </gButton>
+
         </div>
 </template>
 
@@ -9,6 +11,8 @@
 
 
 <script>
+import  gButton from '../components/g-button'
+
 import axios from 'axios'
     export default{
     data() {
@@ -48,6 +52,9 @@ import axios from 'axios'
        handleSelect(item) {
          console.log('ok');
       }
+    },
+    components:{
+        gButton
     },
     mounted(){
 
@@ -112,28 +119,30 @@ import axios from 'axios'
         // });
 
 
-    }
+    },
+
   }
 
 </script>
 
 <style>
+ @import url("../../static/css/index.css");
  @import url("//unpkg.com/element-ui@2.2.2/lib/theme-chalk/index.css");
-.my-autocomplete li {
-    line-height: normal;
-    padding: 7px;
-  }
-.my-autocomplete li .name {
-      text-overflow: ellipsis;
-      overflow: hidden;
+    .my-autocomplete li {
+        line-height: normal;
+        padding: 7px;
     }
-.my-autocomplete li .addr {
-      font-size: 12px;
-      color: #b4b4b4;
+    .my-autocomplete li .name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .my-autocomplete li .addr {
+        font-size: 12px;
+        color: #b4b4b4;
     }
 
-.my-autocomplete li  .highlighted .addr {
-      color: #ddd;
+    .my-autocomplete li  .highlighted .addr {
+        color: #ddd;
     }
 
 </style>

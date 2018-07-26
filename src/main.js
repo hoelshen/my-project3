@@ -49,6 +49,10 @@ Vue.use(VueDND)
 import Vuex from 'vuex'
 
 
+//使用vuetify
+import Vuetify from 'vuetify'
+
+Vue.use(Vuetify)
 
 Vue.use(Vuex)
 
