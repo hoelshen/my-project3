@@ -2,8 +2,10 @@
         <div id="app">
             <el-autocomplete  popper-class="my-autocomplete" v-model="state3" :fetch-suggestions="querySearch" placeholder="请输入内容" >
             </el-autocomplete>
-            <gButton> </gButton>
-
+            <gButton > 我爱JS </gButton>
+            <gButton icon="awesome"> 我爱JS </gButton>
+            <gButton icon="awesome" icon-position="right"> 我爱JS </gButton>
+            <g-icon icon="download"></g-icon>
         </div>
 </template>
 
@@ -12,6 +14,7 @@
 
 <script>
 import  gButton from '../components/g-button'
+import  gIcon from '../components/g-icon'
 
 import axios from 'axios'
     export default{
@@ -54,7 +57,9 @@ import axios from 'axios'
       }
     },
     components:{
-        gButton
+        gButton,
+        gIcon
+
     },
     mounted(){
 
@@ -144,6 +149,9 @@ import axios from 'axios'
     .my-autocomplete li  .highlighted .addr {
         color: #ddd;
     }
-
+    .icon{
+        width: 1em;
+        height: 1em;
+    }
 </style>
 

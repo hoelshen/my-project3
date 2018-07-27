@@ -1,12 +1,30 @@
 <template>
-    <button v-on:click="say" class="gButton">Hi</button>  
-
-
+        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}">
+            <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg> 
+            <div class="content">
+                <slot></slot>
+            </div>
+        </button> 
 </template>
 
 
 <script>
 export default {
+    name:'',
+    // props:["icon", "icon-position"],
+    props:{
+        "icon":{
+
+        },
+        "icon-position":{
+            type:String,
+            default:'left',
+            validator(value){
+                console.log(value);
+                return  value == 'up' ? false  : true
+            }
+        }
+    },
     data(){
         return{
 
@@ -18,13 +36,19 @@ export default {
         }
     },
     components:{
-       
+
+    },
+    mounted(){
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.src = '//at.alicdn.com/t/font_765622_wf1vjrszb6.js';
+        document.body.appendChild(s);
     }
 }
 </script>
 
 
-<style>
+<style lang="less">
     :root{
         --button-height:32px;
         --font-size:14px;
@@ -41,6 +65,25 @@ export default {
         padding: 0 1em;
         border-radius: var(--border-radius);
         border:1px solid var(--border-color);
+        display: inline-flex;justify-content: center;align-items:center;
+        > .icon{
+            order: 1;
+            margin-right: .3rem;
+        }
+
+        > .content{
+            order: 2;
+        }
+
+        &.icon-right{
+            > .icon{
+                order: 2;
+                margin-left: .3rem
+            }
+            > .content{
+                order: 1;
+            }
+        }
     }
     .gButton:hover{
         border-color:var(--border-color-hover);
@@ -49,4 +92,5 @@ export default {
     .gButton:active{
         background-color:var(--button-active-bg)
     }
+
 </style>
