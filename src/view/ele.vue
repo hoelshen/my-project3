@@ -2,16 +2,18 @@
         <div id="app">
             <el-autocomplete  popper-class="my-autocomplete" v-model="state3" :fetch-suggestions="querySearch" placeholder="请输入内容" >
             </el-autocomplete>
-            <gButton > 我爱JS </gButton>
-            <gButton icon="awesome"> 我爱JS </gButton>
-            <gButton icon="awesome" icon-position="right"> 我爱JS </gButton>
-            <g-icon icon="download"></g-icon>
+            <div>
+                <gButton :loading="true"> 我爱JS </gButton>
+                <gButton icon="awesome"> 我爱JS </gButton>
+                <gButton icon="awesome" :loading="loading1"  icon-position="right" @click="loading1 = !loading1 "> 我爱JS </gButton>
+            <br>
+                <g-icon icon="download"></g-icon>
+                <g-icon icon="loading"  class="loading" > 加载中 </g-icon>
+            </div>
         </div>
 </template>
 
-
-
-
+ 
 <script>
 import  gButton from '../components/g-button'
 import  gIcon from '../components/g-icon'
@@ -22,6 +24,7 @@ import axios from 'axios'
         return {
             state3: '',
             articles:[],
+            loading1:true,
         };
     },
     methods: {
@@ -29,7 +32,6 @@ import axios from 'axios'
         let articles = this.articles; 
         let list = [];
         // 调用 callback 返回建议列表的数据
-   
 
             for(let val of articles ){
                 // val.value = val
@@ -59,54 +61,43 @@ import axios from 'axios'
     components:{
         gButton,
         gIcon
-
     },
     mounted(){
 
     },
     created(){
 
-    //   const data ="../static/index.json" ;
-    //   this.$http.get(data
-    //   ).then(function(response){
-    //      let arr = [];
-    //      let arr2 = response.data.subjects;
-    //     // for(var key of arr2){
-    //     //     arr.push(key.title)
+        //   const data ="../static/index.json" ;
+        //   this.$http.get(data
+        //   ).then(function(response){
+        //      let arr = [];
+        //      let arr2 = response.data.subjects;
+        //     // for(var key of arr2){
+        //     //     arr.push(key.title)
 
-    //     // }
-    //     this.articles = arr2;
-    //     console.log(this.articles);
-    //   }),function(err){
-    //       alert('请求失败:',err);
-    //   }
+        //     // }
+        //     this.articles = arr2;
+        //     console.log(this.articles);
+        //   }),function(err){
+        //       alert('请求失败:',err);
+        //   }
 
-      const url = "http://api.douban.com/v2/movie/top250?count=10";
+        const url = "http://api.douban.com/v2/movie/top250?count=10";
         
-         var self = this;
+        var self = this;
         $.ajax({
-
-                url:url,
-
-                dataType:'jsonp',
-
-
-                success:function(data){
-                      let arr = [];
-                     let arr2 = data.subjects;
-                    for(var key of arr2){
-                        arr.push(key.title)
-                    }
-
-                    self.articles = arr;
-                }
+            url:url,
+            dataType:'jsonp',
+            success:function(data){
+                    let arr = [];
+                    let arr2 = data.subjects;
+                for(var key of arr2){
+                    arr.push(key.title)
+                }
+                self.articles = arr;
+            }
 
         })
-
-
-
-        
-
 
         // const url = "https://api.douban.com/v2/movie/top250?count=10";
 
@@ -152,6 +143,15 @@ import axios from 'axios'
     .icon{
         width: 1em;
         height: 1em;
+    }
+    
+    @keyframes spin{
+        0%{ transform: rotate(0deg);}
+        100% {transform: rotate(360deg);}
+    }
+
+    .loading{
+        animation: spin 1s infinite linear
     }
 </style>
 

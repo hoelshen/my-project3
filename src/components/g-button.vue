@@ -1,6 +1,8 @@
 <template>
-        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}">
-            <svg v-if="icon" class="icon"><use :xlink:href="`#i-${icon}`"></use></svg> 
+        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}"
+            @click='x'>
+            <gIcon class="icon"  v-if="icon && !loading" icon="awesome" name="icon"></gIcon>
+            <gIcon class="loading icon"  v-if="loading " icon="loading" name="loading" ></gIcon>
             <div class="content">
                 <slot></slot>
             </div>
@@ -9,6 +11,9 @@
 
 
 <script>
+import  gIcon from '../components/g-icon'
+
+
 export default {
     name:'',
     // props:["icon", "icon-position"],
@@ -23,7 +28,12 @@ export default {
                 console.log(value);
                 return  value == 'up' ? false  : true
             }
+        },
+        "loading":{
+            type:Boolean,
+            default:false,
         }
+        
     },
     data(){
         return{
@@ -33,15 +43,19 @@ export default {
     methods:{
         say(){
             console.log('hi')
+        },
+        x(){
+            this.$emit('click')
         }
+
     },
     components:{
-
+        gIcon
     },
     mounted(){
         const s = document.createElement('script');
         s.type = 'text/javascript';
-        s.src = '//at.alicdn.com/t/font_765622_wf1vjrszb6.js';
+        s.src = '//at.alicdn.com/t/font_765622_5hcdozw03pf.js';
         document.body.appendChild(s);
     }
 }
