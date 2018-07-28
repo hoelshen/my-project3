@@ -11,7 +11,7 @@ export default  myMixin = {
     },
     methods: {
       hello(){
-        window.console.log(this.msg)
+        // window.console.log(this.msg)
       }
     }
   };

@@ -9,7 +9,16 @@
             <br>
                 <g-icon icon="download"></g-icon>
                 <g-icon icon="loading"  class="loading" > 加载中 </g-icon>
+            <br>
+                <gButtonGroup>
+                    <g-button icon-position='left'  left=true>前进
+                    </g-button>
+                    <g-button icon-position='right' right=true> 后退
+                    </g-button>                    
+                </gButtonGroup>
             </div>
+
+            <div id="test"></div>
         </div>
 </template>
 
@@ -17,6 +26,11 @@
 <script>
 import  gButton from '../components/g-button'
 import  gIcon from '../components/g-icon'
+import  gButtonGroup from '../components/g-buttonGroup'
+
+import chai from 'chai'
+
+import Vue from 'Vue'
 
 import axios from 'axios'
     export default{
@@ -35,7 +49,7 @@ import axios from 'axios'
 
             for(let val of articles ){
                 // val.value = val
-                console.log(articles)
+                // console.log(articles)
             }
             
         //     for (let item of articles) {
@@ -55,14 +69,99 @@ import axios from 'axios'
         };
       },
        handleSelect(item) {
-         console.log('ok');
+        //  console.log('ok');
       }
     },
     components:{
         gButton,
-        gIcon
+        gIcon,
+        gButtonGroup
     },
     mounted(){
+        // const expect = chai.expect
+        // //单元测试
+        // {
+        // const Constructor = Vue.extend(gButton)   
+        // const button = new Constructor({
+        //     propsData:{
+        //         icon:'settings'
+        //     }
+        // }) ;
+        // button.$mount()
+
+        // let useElement = button.$el.querySelector('use');
+        // let href = useElement.getAttribute('xlink:href')
+        // // console.log(useElement);
+        // expect(href).to.eq('#i-awesome')
+
+        // }
+
+
+        // {
+        // const Constructor = Vue.extend(gButton)   
+        // const button = new Constructor({
+        //     propsData:{
+        //         icon:'awesome',
+        //         loading:true
+        //     }
+        // }) ;
+        // button.$mount()
+
+        // let useElement = button.$el.querySelector('use');
+        // let href = useElement.getAttribute('xlink:href')
+        // // console.log(useElement);
+        // expect(href).to.eq('#i-loading')
+
+        // }
+
+        // //测试在左边还是在右边
+        // {
+        // const div = document.createElement('div')
+        // // console.log(document.body)
+        // document.body.appendChild(div)
+
+        // const Constructor = Vue.extend(gButton)   
+        // const button = new Constructor({
+        //     propsData:{
+        //         left:true,
+        //         iconPosition:'left'
+        //     }
+        // }) ;
+        // button.$mount(div)
+
+
+        // let svg = button.$el.querySelector('svg');
+        // let order = window.getComputedStyle(svg).order
+        // // console.log(order);
+        // expect(order).to.eq('1')
+
+        // button.$el.remove()
+        // button.$destroy()
+
+        // }
+
+ 
+
+        //测试click事件
+        {
+        //mock
+        const Constructor = Vue.extend(gButton)   
+        const gButton = new Constructor({
+            propsData:{
+                icon:'awesome',
+            }
+        }) ;
+        //希望函数被执行
+        gButton.$mount()
+        
+        gButton.$on('click', ()=>{ console.log('1')})
+
+        let button = gButton.$el;
+        button.click()
+
+        }
+
+
 
     },
     created(){
@@ -113,6 +212,10 @@ import axios from 'axios'
         // .catch(function (error) {
         //     console.log(error);
         // });
+
+
+
+ 
 
 
     },

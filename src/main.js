@@ -5,6 +5,7 @@ import App from './App'
 import router  from './router'
 import store from './store'
 Vue.config.productionTip = false  
+import chai from 'chai'
 
 import $api  from '../api';
 import axios  from  'axios'; 
@@ -45,6 +46,9 @@ Vue.use(components)
 //拖拽排序
 Vue.use(VueDND)
 
+//单元测试
+Vue.use(chai)
+// console.log(chai.expect)
 //vuex
 import Vuex from 'vuex'
 
@@ -58,7 +62,7 @@ Vue.use(Vuex)
 
 Vue.mixin({
   created() {
-    console.log('global mixin')
+    // console.log('global mixin')
   },
 })
 
@@ -79,6 +83,7 @@ Vue.prototype.$bus = new Vue();
 Vue.prototype.HOST = '/api'
 
 
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -87,3 +92,4 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
+

@@ -1,8 +1,9 @@
 <template>
-        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}"
-            @click='x'>
-            <gIcon class="icon"  v-if="icon && !loading" icon="awesome" name="icon"></gIcon>
+        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}"  @click='x'>
+            <gIcon class="icon"  v-if="icon && !loading" icon="awesome" name="awesome"></gIcon>
             <gIcon class="loading icon"  v-if="loading " icon="loading" name="loading" ></gIcon>
+            <gIcon class="left icon " v-if="left" icon='left' name='left' left=true></gIcon>
+            <gIcon class="right icon " v-if="right" icon='right' name='right' right=true></gIcon>
             <div class="content">
                 <slot></slot>
             </div>
@@ -12,7 +13,6 @@
 
 <script>
 import  gIcon from '../components/g-icon'
-
 
 export default {
     name:'',
@@ -32,6 +32,12 @@ export default {
         "loading":{
             type:Boolean,
             default:false,
+        },
+        "left":{
+            default:false
+        },
+        "right":{
+            default:false
         }
         
     },
@@ -42,7 +48,7 @@ export default {
     },
     methods:{
         say(){
-            console.log('hi')
+            // console.log('hi')
         },
         x(){
             this.$emit('click')
