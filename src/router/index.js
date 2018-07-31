@@ -26,6 +26,9 @@ import avgle from '@/view/avgle'
 import imge from '@/view/imge'
 import mixin from '@/view/mixin'
 import Carousel from '@/view/Carousel'
+import father  from '@/view/father.vue'
+
+import vueQuillEditor  from '@/view/vueQuillEditor'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -185,7 +188,16 @@ const router = new Router({
       name:'Sidebar',
       component:Sidebar
     },
-    
+    {
+      path:'/vueQuillEditor',
+      name:'vueQuillEditor',
+      component:vueQuillEditor
+    },    
+    {
+      path:'/father',
+      name:'father',
+      component:father
+    },    
 
     
     // {

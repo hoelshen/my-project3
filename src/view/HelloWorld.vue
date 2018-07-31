@@ -23,6 +23,10 @@
                 
             </li>
             <li>
+               <router-link to="/vueQuillEditor" >Go to quillEditor</router-link>
+                
+            </li>            
+            <li>
              <router-link  :to="{name:'test3',params:{name:'sjh',sex:'man'}}" >Go to test3</router-link>              
               
             </li>

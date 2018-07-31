@@ -1,7 +1,8 @@
 <template>
-  
+    <remote src="https://g.alicdn.com/dingding/dinglogin/0.0.2/ddLogin.js">
 </template>
 <script>
+    import remote from '../components/script.vue'
     let baseUrl = 'http://localhost:9092'; 
 
     import axios from 'axios'
@@ -35,6 +36,9 @@
                 console.error(error)
             }
         }
+    },
+    component:{
+        remote
     }
 
 

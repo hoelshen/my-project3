@@ -30,6 +30,10 @@ import  gButtonGroup from '../components/g-buttonGroup'
 
 import chai from 'chai'
 
+import spies from 'chai-spies'
+chai.use(spies)
+
+
 import Vue from 'Vue'
 
 import axios from 'axios'
@@ -78,86 +82,91 @@ import axios from 'axios'
         gButtonGroup
     },
     mounted(){
-        // const expect = chai.expect
-        // //单元测试
-        // {
-        // const Constructor = Vue.extend(gButton)   
-        // const button = new Constructor({
-        //     propsData:{
-        //         icon:'settings'
-        //     }
-        // }) ;
-        // button.$mount()
+        const expect = chai.expect
+        //单元测试
+        {
+        const Constructor = Vue.extend(gButton)   
+        const button = new Constructor({
+            propsData:{
+                icon:'settings'
+            }
+        }) ;
+        button.$mount()
 
-        // let useElement = button.$el.querySelector('use');
-        // let href = useElement.getAttribute('xlink:href')
-        // // console.log(useElement);
-        // expect(href).to.eq('#i-awesome')
+        let useElement = button.$el.querySelector('use');
+        let href = useElement.getAttribute('xlink:href')
+        // console.log(useElement);
+        expect(href).to.eq('#i-awesome')
 
-        // }
-
-
-        // {
-        // const Constructor = Vue.extend(gButton)   
-        // const button = new Constructor({
-        //     propsData:{
-        //         icon:'awesome',
-        //         loading:true
-        //     }
-        // }) ;
-        // button.$mount()
-
-        // let useElement = button.$el.querySelector('use');
-        // let href = useElement.getAttribute('xlink:href')
-        // // console.log(useElement);
-        // expect(href).to.eq('#i-loading')
-
-        // }
-
-        // //测试在左边还是在右边
-        // {
-        // const div = document.createElement('div')
-        // // console.log(document.body)
-        // document.body.appendChild(div)
-
-        // const Constructor = Vue.extend(gButton)   
-        // const button = new Constructor({
-        //     propsData:{
-        //         left:true,
-        //         iconPosition:'left'
-        //     }
-        // }) ;
-        // button.$mount(div)
+        }
 
 
-        // let svg = button.$el.querySelector('svg');
-        // let order = window.getComputedStyle(svg).order
-        // // console.log(order);
-        // expect(order).to.eq('1')
+        {
+        const Constructor = Vue.extend(gButton)   
+        const button = new Constructor({
+            propsData:{
+                icon:'awesome',
+                loading:true
+            }
+        }) ;
+        button.$mount()
 
-        // button.$el.remove()
-        // button.$destroy()
+        let useElement = button.$el.querySelector('use');
+        let href = useElement.getAttribute('xlink:href')
+        // console.log(useElement);
+        expect(href).to.eq('#i-loading')
 
-        // }
+        }
+
+        //测试在左边还是在右边
+        {
+        const div = document.createElement('div')
+        // console.log(document.body)
+        document.body.appendChild(div)
+
+        const Constructor = Vue.extend(gButton)   
+        const button = new Constructor({
+            propsData:{
+                left:true,
+                iconPosition:'left'
+            }
+        }) ;
+        button.$mount(div)
+
+
+        let svg = button.$el.querySelector('svg');
+        let order = window.getComputedStyle(svg).order
+        // console.log(order);
+        expect(order).to.eq('1')
+
+        button.$el.remove()
+        button.$destroy()
+
+        }
 
  
 
         //测试click事件
         {
-        //mock
-        const Constructor = Vue.extend(gButton)   
-        const gButton = new Constructor({
-            propsData:{
-                icon:'awesome',
-            }
-        }) ;
-        //希望函数被执行
-        gButton.$mount()
-        
-        gButton.$on('click', ()=>{ console.log('1')})
+            //mock
+            const Constructor = Vue.extend(gButton)   
+            const gButton = new Constructor({
+                propsData:{
+                    icon:'awesome',
+                }
+            }) ;
+            //希望函数被执行
+            gButton.$mount()
 
-        let button = gButton.$el;
-        button.click()
+            let spy = chai.spy(()=>{})
+            
+            gButton.$on('click', spy)
+
+            let button = gButton.$el;
+
+            button.click()
+
+            expect(spy).to.have.been.called()
 
         }
 

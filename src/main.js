@@ -16,10 +16,18 @@ import ElementUI from 'element-ui'
 import VueResource from 'vue-resource'
 import VueDND from 'awe-dnd'
 
+import VueQuillEditor from 'vue-quill-editor'
+
+
 import $ from 'jquery'
 
 import VvUI from 'vvui' // 引入组件库
 import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
+//引入quill-editor样式
+// import 'quill/dist/quill.core.css'
+// import 'quill/dist/quill.snow.css'
+// import 'quill/dist/quill.bubble.css'
+
 // import $ from  './assets/js/jquery.min.js' //js
 
 
@@ -35,6 +43,7 @@ import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
 // console.log(Vue.$bus)
 Vue.use(VvUI)
 
+Vue.use(VueQuillEditor)
 
 //HTTP
 Vue.use(VueResource)
@@ -81,6 +90,36 @@ Vue.prototype.$api = $api;
 Vue.prototype.$bus = new Vue(); 
 
 Vue.prototype.HOST = '/api'
+
+    // //1.创建组件构造器
+    // var obj = {
+    //   props: [],
+    //   template: '<div><p>{{extendData}}</p></div>',//最外层只能有一个大盒子,这个和<tempalte>对应规则一致
+    //   data: function () {
+    //     return {
+    //       extendData: '这是Vue.component传入Vue.extend注册的组件',
+    //     }
+    //   },
+    // };
+
+    // var Profile = Vue.extend(obj);
+
+    // //2.注册组件方法一:传入Vue.extend扩展过得构造器
+    // Vue.component('component-one', Profile)
+
+    // //2.注册组件方法二:直接传入
+    // Vue.component('component-two', obj)
+
+    // //3.挂载
+    // new Vue({
+    //   el: '#app'
+    // });
+
+    // //获取注册的组件 (始终返回构造器)
+    // var oneComponent=Vue.component('component-one');
+    // console.log(oneComponent===Profile)//true,返回的Profile构造器
+
+
 
 
 
