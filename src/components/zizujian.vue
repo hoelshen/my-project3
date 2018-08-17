@@ -1,5 +1,5 @@
 <template>
-    <el-button @click="changeFather" v-on:fatherValue="fatherValue">孙子组件按钮</el-button>
+    <el-button @click="changeFather" :fatherValue="fatherValue">孙子组件按钮</el-button>
 </template>
 <script>
 export default {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-button @click="changeFather" >子组件按钮</el-button> 
-        <zizujian :data2="data1" v-on:fatherValue="fatherValue">这是孙子组件</zizujian>
+        <zizujian :data2="data1" :fatherValue="fatherValue">这是孙子组件</zizujian>
     </div>
 </template>
 <script>

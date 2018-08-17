@@ -74,8 +74,8 @@ export default {
   },
   components:{
        timeComponet
-  }
-  // props:['myMessage']
+  },
+  props:{myMessage:''}
 };
 </script>
 
