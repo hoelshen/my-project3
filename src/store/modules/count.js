@@ -3,9 +3,13 @@ const count = {
         count:0
     },
     mutations: {
-        increment:state => state.count++,
-        decrement:state => state.count--
-    }, 
+        increment (state, paylod) {
+            state.count += paylod.count
+        },
+        decrement (state, paylod) {
+            state.count -= paylod.count
+        }
+    },
     action:{
         increment:({commit}) => commit('increment'),
         decrement:({commit}) => commit('decrement'),

@@ -27,8 +27,11 @@ import imge from '@/view/imge'
 import mixin from '@/view/mixin'
 import Carousel from '@/view/Carousel'
 import father  from '@/view/father.vue'
-
+import news from '@/view/news.vue'
 import vueQuillEditor  from '@/view/vueQuillEditor'
+
+import  filter from "@/view/filter.vue"
+import vHtml from '@/view/v-html'
 // const Login = () => import('@/view/Login')
 
 Vue.use(Router)
@@ -198,8 +201,21 @@ const router = new Router({
       name:'father',
       component:father
     },    
-
-    
+    {
+      path:'/news',
+      name:'news',
+      component:news
+    }, 
+    {
+      path:'/vHtml',
+      name:'vHtml',
+      component:vHtml
+    },    
+    {
+      path:'/filter',
+      name:'vHtml',
+      component:filter
+    }, 
     // {
     //   path:'/a',
     //   name:'a',

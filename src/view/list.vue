@@ -18,7 +18,7 @@ export default {
         beforeRouteLeave (to, from, next) {
             if(用户已经输入信息){
                 //出现弹窗提醒保存草稿，或者自动后台为其保存
-                
+                alert("sdsd")
             }else{
                 next(true);//用户离开
             }

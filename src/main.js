@@ -91,6 +91,24 @@ Vue.prototype.$bus = new Vue();
 
 Vue.prototype.HOST = '/api'
 
+Vue.prototype.$reverseText = function (propertyName) {
+  console.log("this", this);
+  this[propertyName] = this[propertyName]
+    .split('')
+    .reverse()
+    .join('')
+}
+
+
+// Vue.prototype.$reverseText = propertyName => {
+//   console.log("this", this);
+//   this[propertyName] = this[propertyName]
+//     .split('')
+//     .reverse()
+//     .join('')
+// }
+
+
     // //1.创建组件构造器
     // var obj = {
     //   props: [],

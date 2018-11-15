@@ -1,6 +1,6 @@
 <template>
     <div>
-        <el-button @click="changeFather" >子组件按钮</el-button> 
+        <el-button @click="changeFather" >子组件按钮</el-button>  
         <zizujian :data2="data1" :fatherValue="fatherValue">这是孙子组件</zizujian>
     </div>
 </template>
@@ -9,7 +9,7 @@ import zizujian from "./zizujian";
 export default {
     data () {
         return {
-            value4: ""
+            // value4: ""
         };
     },
     props: {

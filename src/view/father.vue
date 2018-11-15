@@ -1,6 +1,6 @@
 <template>
     <div>
-        <fuzujian :data1="value3"  v-on:fatherByValue="fatherByValue"></fuzujian>
+        <fuzujian :data1="value3"  :fatherByValue="fatherByValue"></fuzujian>
         <el-button  @click="clickButton" >父组件按钮</el-button>
         <p>12</p>
     </div>

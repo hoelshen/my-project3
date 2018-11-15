@@ -17,6 +17,7 @@
     "el-search-table-pagination": "^0.4.24",
     "element-ui": "^2.2.2",
     "jquery": "^2.2.3",
+    "moment": "^2.22.2",
     "vue": "^2.5.2",
     "vue-filter": "^0.2.4",
     "vue-moment": "^3.2.0",

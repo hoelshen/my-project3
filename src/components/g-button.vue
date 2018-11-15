@@ -1,5 +1,5 @@
 <template>
-        <button v-on:click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}"  @click='x'>
+        <button @click="say" class="gButton"  :class="{[`icon-${iconPosition}`]: true}" >
             <gIcon class="icon"  v-if="icon && !loading" icon="awesome" name="awesome"></gIcon>
             <gIcon class="loading icon"  v-if="loading " icon="loading" name="loading" ></gIcon>
             <gIcon class="left icon " v-if="left" icon='left' name='left' left=true></gIcon>
@@ -19,7 +19,8 @@ export default {
     // props:["icon", "icon-position"],
     props:{
         "icon":{
-
+            type: String,
+            default:""
         },
         "icon-position":{
             type:String,
