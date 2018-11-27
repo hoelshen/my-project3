@@ -1,14 +1,6 @@
 <template>
         <div>
-            <h1>jsx</h1>
-            <ul>
-                <li v-for="(value, key) in person" v-text="key + ':'  + value"></li>
-            </ul>
             <div v-html="cat"></div>
-            <div>
-                <!-- <aElement v-model="text"/>{{text}} -->
-                <!-- <bElement v-model="haorooms"></bElement> -->
-            </div>
             <div>
                 <canvas id='canvas' 
                 :width="width" :height="height"
@@ -16,32 +8,16 @@
                 @mousemove="canvasMove($event)"
                 @mouseup="canvasUp($event)"
                 style="border:1px solid #ccc;margin:20px auto;display: block;"></canvas>  
-            </div>   
-            <div>
-                <a-select v-model="parentValue" ></a-select>
-            </div>    
+            </div>       
         </div>
 </template>
 <script>
-    import aElement from '.././components/elemen.vue'
-    import bElement from '.././components/my-checkbox.vue'
-    import aSelect from '.././components/select.vue'
 export default {
-    components:{aElement, bElement, aSelect},
+    name:"canvas",
     data(){
         return{
-            person: {
-                name: 'sjh',
-                set: 'man',
-                age:'18'
-            },
-            cat: "<img src='https://thenewwork.oss-cn-shanghai.aliyuncs.com/vankely_admin_web/GdhJbRfTyRDZ/%E7%8C%AB1.jpeg'/>",
-            text:'666',
-            haorooms: 'sjh',
+           cat: "<img src='https://thenewwork.oss-cn-shanghai.aliyuncs.com/vankely_admin_web/GdhJbRfTyRDZ/%E7%8C%AB1.jpeg'/>",
             arry:[],
-            lineWidth:2,
-            lineType: 'circle',
-            linecolor: 'red',
             width: 400,
             height: 400,
             beginRec: {
@@ -53,7 +29,8 @@ export default {
                 y: ''
             },
             img: new Image(),
-            isMove: false
+            isMove: false,
+            scale: ""
         }
     },
     methods:{
@@ -62,8 +39,12 @@ export default {
             this.smImage = "https://thenewwork.oss-cn-shanghai.aliyuncs.com/vankely_admin_web/GdhJbRfTyRDZ/%E7%8C%AB1.jpeg"
             this.c = document.getElementById('canvas');
             this.img.src = this.smImage;
+            console.log('width,height', this.img.width, this.img.height);
+            this.scale = (this.img.width / this.width) // 原始图片的宽度与canvas画布的宽度比
+            console.log("scale", this.scale);
             this.ctx = this.c.getContext('2d');
-            that.ctx.drawImage(that.img, 0, 0, 600, 600)
+            that.ctx.drawImage(that.img, 0, 0, this.width, this.height);
+            // that.ctx.drawImage(that.img, 0, 0, this.img.width, this.img.height, 0, 0, this.width, this.height);
         },
         getbeginRecLocation(e){
             const { ctx, beginRec, endRec } = this;
@@ -79,7 +60,7 @@ export default {
         clearImage(){
             const { ctx, beginRec, arry } = this;
             ctx.clearRect(0,0,this.width,this.height);
-            this.ctx.drawImage(this.img, 0, 0, 600, 600)
+            this.ctx.drawImage(this.img, 0, 0, this.width, this.height)
         },
         canvasDown(e){
             this.isMove = true;

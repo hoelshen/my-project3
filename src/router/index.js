@@ -29,6 +29,7 @@ import Carousel from '@/view/Carousel'
 import father  from '@/view/father.vue'
 import news from '@/view/news.vue'
 import vueQuillEditor  from '@/view/vueQuillEditor'
+import canvas from '@/view/CANVAS'
 
 import  filter from "@/view/filter.vue"
 import vHtml from '@/view/v-html'
@@ -215,6 +216,11 @@ const router = new Router({
       path:'/filter',
       name:'vHtml',
       component:filter
+    }, 
+    {
+      path:'/canvas',
+      name:'canvas',
+      component:canvas
     }, 
     // {
     //   path:'/a',
