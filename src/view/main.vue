@@ -24,6 +24,14 @@
                     this.init = true
                 }, 250)
             },
+            methods:{
+                handleCurrentChange: function (index) {
+                    const postError = [];
+                    this.$logger.log("抛出错误到sentry", postError[1][1]);
+                    this.pageNo = index;
+                    this.refreshData();
+                }
+            },
             components: {
                mainSkeleton
             }

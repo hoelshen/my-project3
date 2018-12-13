@@ -93,15 +93,16 @@ export default {
             this.clearImage();
             ctx.strokeRect(beginRec.x, beginRec.y, width, height);
             arry.push({
-                x: beginRec.x,
-                y: beginRec.y
+                x: (beginRec.x*this.scale).toFixed(0),
+                y: (beginRec.y* this.scale).toFixed(0)
             },{
-                x: endRec.x,
-                y: endRec.y
+                x: (endRec.x*this.scale).toFixed(0),
+                y: (endRec.y*this.scale).toFixed(0)
             })
             this.isMove = false;
+
             console.log("右上角", endRec.x,endRec.y);
-            console.log('数组', arry);
+            console.log('数组',arry);
         }
     },
     mounted(){

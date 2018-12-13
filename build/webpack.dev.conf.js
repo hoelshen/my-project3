@@ -63,6 +63,13 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       inject: true
     }),
+    new webpack.optimize.UglifyJsPlugin({
+        sourceMap: true,
+        compress: {
+            warnings: false
+        }
+    }),
+
     // copy custom static assets
     new CopyWebpackPlugin([
       {

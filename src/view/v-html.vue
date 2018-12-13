@@ -18,7 +18,7 @@
                 style="border:1px solid #ccc;margin:20px auto;display: block;"></canvas>  
             </div>   
             <div>
-                <a-select v-model="parentValue" ></a-select>
+                <a-select v-model="parentValue" :selectData="selectData"></a-select>
             </div>    
         </div>
 </template>
@@ -52,6 +52,20 @@ export default {
                 x: '',
                 y: ''
             },
+            selectData:[{
+                value:"001",
+                text: "sjh",
+                sex: "man"
+            },{
+                value:"002",
+                text:"shj",
+                sex: "man"
+            },{
+                value:"003",
+                text: "shy",
+                sex:"woman"
+            }],
+            parentValue: "003",
             img: new Image(),
             isMove: false
         }

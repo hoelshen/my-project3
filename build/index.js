@@ -23,7 +23,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: 'http://java.cbs.test.yipicha.com', // 接口的域名
+        target: 'https://admin-d.vkcommerce.com/vankely-api', // 接口的域名
         secure: false,
         changeOrigin: true,
         pathRewrite:{

@@ -4,6 +4,8 @@
 
 ## Build Setup
 
+###一些自己的平时试验，父子组件传值，canvas绘制，vue测试用例等等,还有一些store的实践
+
 ``` bash
 # install dependencies
 npm install

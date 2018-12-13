@@ -6,6 +6,11 @@ import router  from './router'
 import store from './store'
 Vue.config.productionTip = false  
 import chai from 'chai'
+// import * as Sentry from '@sentry/browser'
+
+// import Raven from 'raven-js';
+// import RavenVue from 'raven-js/plugins/vue';
+
 
 import $api  from '../api';
 import axios  from  'axios'; 
@@ -30,6 +35,12 @@ import 'vvui/packages/theme-default/lib/index.css' // 引入样式库
 
 // import $ from  './assets/js/jquery.min.js' //js
 
+// Sentry.init({
+//   dsn: 'https://64c297583bcb4ff38e58e5db53557067@sentry.io/1331503',
+//   integrations: [new Sentry.Integrations.Vue({ Vue })]
+// })
+
+// Raven .config("https://sentry.io/ff689ca5d4b5/", { debug: true }) .addPlugin(RavenVue, Vue) .install();
 
 //复用table搜索框
 // import ElSearchTablePagination from 'el-search-table-pagination'

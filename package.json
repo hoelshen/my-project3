@@ -9,7 +9,8 @@
     "start": "npm run dev",
     "build": "node build/build.js",
     "mock": "json-server mock/db.json --port 9092",
-    "mockdev": "npm run mock & npm run dev"
+    "mockdev": "npm run mock & npm run dev",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "awe-dnd": "^0.3.1",

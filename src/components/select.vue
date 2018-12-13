@@ -12,9 +12,7 @@
 export default {
     name: 'a-select',
     data(){
-        return{
-             SJH: "sjh"  
-        }
+        return{}
     },
     model: {
         prop: 'selected',
@@ -34,14 +32,15 @@ export default {
     },
     methods: {
         emitChange(value){
+            console.log("value", value);
             this.$emit('change', value);
         }
     }
 }   
 </script>
 <style lang="less">
-	@b select {
-		@e item {
+	select {
+		&item {
 			min-width: 150px;
 			height: 30px;
 		}
